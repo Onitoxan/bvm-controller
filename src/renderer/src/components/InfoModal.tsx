@@ -47,7 +47,10 @@ export function InfoModal({ onClose }: InfoModalProps): JSX.Element {
               <dd>Click the refresh button next to the port selector. Make sure the adapter driver is installed and the device appears in your system's device list.</dd>
 
               <dt>Connected but no LED feedback</dt>
-              <dd>The BVM streams LED state only for groups 2–4. The power LED (group 1) is not included in the stream.</dd>
+              <dd>The BVM streams LED state only for groups 2–4. The power LED (group 1) is not included in the stream. The rest of LEDs should work correctly.</dd>
+
+              <dt>I found an issue/bug what should I do?</dt>
+              <dd>Please report it on the project's GitHub repository creating an issue. But first please double check it's a software issue and not a hardware issue. Include as much detail as possible, including your setup, steps to reproduce, photos, and any relevant information.</dd>
 
               <dt>Is it safe to use?</dt>
               <dd>
