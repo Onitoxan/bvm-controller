@@ -115,6 +115,25 @@ body {
   cursor: default;
 }
 
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: var(--bg-btn);
+  border: 1px solid var(--border-s);
+  border-radius: 4px;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+
+.nav-btn:hover {
+  background: var(--bg-btn-h);
+  color: var(--text);
+}
+
 .conn-btn {
   padding: 4px 14px;
   border-radius: 4px;
@@ -212,9 +231,13 @@ body {
 /* Power row */
 .section--top {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: flex-start;
+  justify-content: space-between;
+  .power {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+  }
 }
 
 .powering-msg {
@@ -427,6 +450,211 @@ body {
   min-height: 42px;
   font-size: 13px;
   font-weight: 700;
+}
+
+/* ── Knob ────────────────────────────────────────── */
+
+/* ── Modal ───────────────────────────────────────── */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-s);
+  border-radius: 6px;
+  width: 480px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.modal__title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.modal__close {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 3px;
+  transition: color 0.1s, background 0.1s;
+}
+
+.modal__close:hover {
+  color: var(--text);
+  background: var(--bg-btn-h);
+}
+
+.modal__body {
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal__section h2 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.modal__section ol,
+.modal__section ul {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal__section li {
+  font-size: 11px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.modal__section strong {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.modal__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.modal__table th,
+.modal__table td {
+  padding: 5px 10px;
+  text-align: left;
+  border: 1px solid var(--border-s);
+}
+
+.modal__table th {
+  background: var(--bg-section);
+  color: var(--text-dim);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 9px;
+}
+
+.modal__table td {
+  color: var(--text);
+}
+
+.modal__table tr:nth-child(even) td {
+  background: var(--bg-section);
+}
+
+.modal__section dl {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal__section dt {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.modal__section dd {
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin-left: 0;
+}
+
+.modal__ref-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 10px;
+  color: var(--text-dim);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.1s;
+}
+
+.modal__ref-link:hover { color: var(--text); }
+
+.modal__section dd ul {
+  padding-left: 14px;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal__section dd strong {
+  color: var(--text);
+}
+
+/* ── Connector diagram ───────────────────────────── */
+
+.connector-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.connector-diagram svg {
+  width: 100%;
+  height: auto;
+}
+
+
+.connector-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 20px;
+  width: 100%;
+}
+
+.connector-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  color: var(--text-dim);
+}
+
+.connector-legend__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 /* ── Knob ────────────────────────────────────────── */

@@ -121,3 +121,13 @@ export function ShiftIcon(): JSX.Element {
     </Icon>
   );
 }
+
+export function InformationIcon(): JSX.Element {
+  return (
+    <Icon>
+      <circle cx={c} cy={c} r={c - 1} />
+      <circle cx={c} cy={4.5} r={0.8} fill="currentColor" stroke="none" />
+      <line x1={c} y1={6.5} x2={c} y2={11} />
+    </Icon>
+  );
+}

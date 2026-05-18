@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSerial } from "./hooks/useSerial";
 import { Knob } from "./components/Knob";
 import { ControlButton } from "./components/ControlButton";
@@ -13,6 +14,9 @@ import {
   isLedOn,
   BUTTON_ICONS
 } from "./protocol/bkm10r";
+import { InformationIcon } from "./components/ButtonIcons";
+import Button from "./components/Button";
+import { InfoModal } from "./components/InfoModal";
 
 function RefreshIcon(): JSX.Element {
   return (
@@ -40,6 +44,7 @@ export default function App(): JSX.Element {
   } = useSerial();
 
   const isShifted = isLedOn(ledState, SHIFT_GROUP, SHIFT_MASK);
+  const [showInfo, setShowInfo] = useState(false);
 
   return (
     <div className="bvm">
@@ -56,7 +61,7 @@ export default function App(): JSX.Element {
             {ports.map((p) => (
               <option key={p.path} value={p.path}>
                 {p.path}
-                {p.manufacturer ? ` — ${p.manufacturer}` : ""}
+                {p.manufacturer ? ` (${p.manufacturer})` : ""}
               </option>
             ))}
           </select>
@@ -86,21 +91,25 @@ export default function App(): JSX.Element {
       <main className="bvm__panel">
         {/* Power / Degauss row */}
         <section className="section section--top">
-          <ControlButton
-            {...POWER_BUTTON}
-            ledState={ledState}
-            disabled={!connected || powering}
-            variant="power"
-            onPress={() => sendPower()}
-          />
-          <ControlButton
-            {...DEGAUSS_BUTTON}
-            ledState={ledState}
-            disabled={!connected}
-            variant="normal"
-            onPress={sendKey}
-          />
-          {powering && <span className="powering-msg">Powering…</span>}
+          <div className="power">
+            <ControlButton
+              {...POWER_BUTTON}
+              ledState={ledState}
+              disabled={!connected || powering}
+              variant="power"
+              onPress={() => sendPower()}
+            />
+            <ControlButton
+              {...DEGAUSS_BUTTON}
+              ledState={ledState}
+              disabled={!connected}
+              variant="normal"
+              onPress={sendKey}
+            />
+            {powering && <span className="powering-msg">Powering…</span>}
+          </div>
+          <Button icon={<InformationIcon />} onClick={() => setShowInfo(true)} title="Setup &amp; FAQ" />
+          {showInfo && <InfoModal onClose={() => setShowInfo(false)} />}
         </section>
 
         {/* Encoders */}
