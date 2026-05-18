@@ -52,7 +52,7 @@ export const FUNCTION_BUTTONS: ButtonDef[] = [
   { label: "COMB", shiftedLabel: "B", group: 0x04, mask: 0x02 },
   { label: "F1", shiftedLabel: "F3", group: 0x04, mask: 0x04 },
   { label: "F2", shiftedLabel: "F4", group: 0x04, mask: 0x08 },
-  { label: "SAFE AREA", shiftedLabel: "ADDRESS", group: 0x04, mask: 0x10 }
+  { label: "ADDRESS", shiftedLabel: "SAFE AREA", group: 0x04, mask: 0x10 }
 ];
 
 export const NAV_BUTTONS: ButtonDef[] = [
