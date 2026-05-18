@@ -56,7 +56,15 @@ export function MonoIcon(): JSX.Element {
   return (
     <Icon>
       <rect x="1" y="2" width="12" height="10" rx="0.5" />
-      <rect x="3" y="4" width="8" height="6" rx="0.5" fill="currentColor" stroke="none" />
+      <rect
+        x="3"
+        y="4"
+        width="8"
+        height="6"
+        rx="0.5"
+        fill="currentColor"
+        stroke="none"
+      />
     </Icon>
   );
 }
@@ -91,7 +99,14 @@ export function SafeAreaIcon(): JSX.Element {
   return (
     <Icon>
       <rect x="1" y="2" width="12" height="10" rx="0.5" />
-      <rect x="3" y="3.8" width="8" height="6.4" rx="0.3" strokeDasharray="1.5 1" />
+      <rect
+        x="3"
+        y="3.8"
+        width="8"
+        height="6.4"
+        rx="0.3"
+        strokeDasharray="1.5 1"
+      />
     </Icon>
   );
 }
@@ -100,7 +115,9 @@ export function SafeAreaIcon(): JSX.Element {
 export function ShiftIcon(): JSX.Element {
   return (
     <Icon>
-      <polyline points={`${c},2 ${S - 2},8 ${S - 4},8 ${S - 4},${S - 2} ${4},${S - 2} ${4},8 2,8`} />
+      <polyline
+        points={`${c},2 ${S - 2},8 ${S - 4},8 ${S - 4},${S - 2} ${4},${S - 2} ${4},8 2,8`}
+      />
     </Icon>
   );
 }

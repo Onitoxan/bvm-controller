@@ -1,25 +1,29 @@
 :root {
-  --bg:          #18191d;
-  --bg-panel:    #20232a;
-  --bg-section:  #252930;
-  --bg-btn:      #2c303a;
-  --bg-btn-h:    #353a47;
-  --bg-btn-a:    #3c4155;
-  --border:      #14161c;
-  --border-s:    #1e222a;
-  --text:        #cdd0dc;
-  --text-dim:    #7a8090;
-  --text-label:  #9aa0b0;
-  --orange:      #f0a000;
-  --orange-dim:  #5a3a00;
-  --led-on:      #ff6a00;
+  --bg: #18191d;
+  --bg-panel: #20232a;
+  --bg-section: #252930;
+  --bg-btn: #2c303a;
+  --bg-btn-h: #353a47;
+  --bg-btn-a: #3c4155;
+  --border: #14161c;
+  --border-s: #1e222a;
+  --text: #cdd0dc;
+  --text-dim: #7a8090;
+  --text-label: #9aa0b0;
+  --orange: #f0a000;
+  --orange-dim: #5a3a00;
+  --led-on: #ff6a00;
   --led-on-glow: rgba(255, 106, 0, 0.45);
-  --led-off:     #28150000;
-  --green:       #00c060;
-  --red:         #e03030;
+  --led-off: #28150000;
+  --green: #00c060;
+  --red: #e03030;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: "SF Mono", "Monaco", "Consolas", "Courier New", monospace;
@@ -96,7 +100,9 @@ body {
   border-radius: 4px;
   color: var(--text-dim);
   cursor: pointer;
-  transition: background 0.1s, color 0.1s;
+  transition:
+    background 0.1s,
+    color 0.1s;
 }
 
 .icon-btn:hover:not(:disabled) {
@@ -104,7 +110,10 @@ body {
   color: var(--text);
 }
 
-.icon-btn:disabled { opacity: 0.4; cursor: default; }
+.icon-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
 
 .conn-btn {
   padding: 4px 14px;
@@ -123,16 +132,23 @@ body {
   border-color: #1a4a1a;
   color: #50c050;
 }
-.conn-btn--connect:hover:not(:disabled) { background: #0d320d; }
+.conn-btn--connect:hover:not(:disabled) {
+  background: #0d320d;
+}
 
 .conn-btn--disconnect {
   background: #280a0a;
   border-color: #4a1a1a;
   color: #d05050;
 }
-.conn-btn--disconnect:hover { background: #350d0d; }
+.conn-btn--disconnect:hover {
+  background: #350d0d;
+}
 
-.conn-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.conn-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
 .status-dot {
   width: 8px;
@@ -140,8 +156,13 @@ body {
   border-radius: 50%;
   flex-shrink: 0;
 }
-.status-dot--on  { background: var(--green); box-shadow: 0 0 5px rgba(0,192,96,.5); }
-.status-dot--off { background: #303030; }
+.status-dot--on {
+  background: var(--green);
+  box-shadow: 0 0 5px rgba(0, 192, 96, 0.5);
+}
+.status-dot--off {
+  background: #303030;
+}
 
 .monitor-status {
   font-size: 11px;
@@ -204,7 +225,9 @@ body {
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Encoders */
@@ -287,7 +310,9 @@ body {
   user-select: none;
   min-width: 54px;
   min-height: 44px;
-  transition: background 0.08s, transform 0.06s;
+  transition:
+    background 0.08s,
+    transform 0.06s;
 }
 
 .ctrl-btn:hover:not(:disabled):not(.ctrl-btn--disabled) {
@@ -325,9 +350,13 @@ body {
   flex-shrink: 0;
 }
 
-.ctrl-btn--led-on .ctrl-btn__icon { color: var(--text-label); }
+.ctrl-btn--led-on .ctrl-btn__icon {
+  color: var(--text-label);
+}
 
-.btn-icon { display: block; }
+.btn-icon {
+  display: block;
+}
 
 /* LED indicator */
 .ctrl-btn__led {
@@ -336,13 +365,17 @@ body {
   border-radius: 50%;
   background: #1a0a00;
   border: 1px solid #0a0600;
-  transition: background 0.12s, box-shadow 0.12s;
+  transition:
+    background 0.12s,
+    box-shadow 0.12s;
   flex-shrink: 0;
 }
 
 .ctrl-btn--led-on .ctrl-btn__led {
   background: var(--led-on);
-  box-shadow: 0 0 5px var(--led-on-glow), 0 0 10px var(--led-on-glow);
+  box-shadow:
+    0 0 5px var(--led-on-glow),
+    0 0 10px var(--led-on-glow);
 }
 
 .ctrl-btn__label {
@@ -366,11 +399,18 @@ body {
   color: #c08010;
   min-width: 68px;
 }
-.ctrl-btn--power:hover:not(:disabled) { background: #2a1a00; }
-.ctrl-btn--power .ctrl-btn__led { background: #2a1000; border-color: #1a0800; }
+.ctrl-btn--power:hover:not(:disabled) {
+  background: #2a1a00;
+}
+.ctrl-btn--power .ctrl-btn__led {
+  background: #2a1000;
+  border-color: #1a0800;
+}
 .ctrl-btn--power.ctrl-btn--led-on .ctrl-btn__led {
   background: #ff3000;
-  box-shadow: 0 0 6px rgba(255,48,0,.6), 0 0 12px rgba(255,48,0,.3);
+  box-shadow:
+    0 0 6px rgba(255, 48, 0, 0.6),
+    0 0 12px rgba(255, 48, 0, 0.3);
 }
 
 /* Nav variant */
@@ -397,7 +437,9 @@ body {
   gap: 5px;
 }
 
-.knob-wrapper--disabled { opacity: 0.35; }
+.knob-wrapper--disabled {
+  opacity: 0.35;
+}
 
 .knob-label {
   font-size: 9px;

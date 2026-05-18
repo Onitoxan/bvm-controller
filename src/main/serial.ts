@@ -86,9 +86,16 @@ export function setupSerial(): void {
           inLedBank = false;
           resolve();
           setTimeout(() => {
-            sendBytes(Buffer.concat([BANK_ISW, BANK_ICC, BANK_IMT, Buffer.from([0x44, 0x33, 0x31])]));
+            sendBytes(
+              Buffer.concat([
+                BANK_ISW,
+                BANK_ICC,
+                BANK_IMT,
+                Buffer.from([0x44, 0x33, 0x31])
+              ])
+            );
           }, 300);
-        },
+        }
       );
       port.on("data", (chunk: Buffer) => {
         console.log("RX:", chunk.toString("hex"));
@@ -121,6 +128,8 @@ export function setupSerial(): void {
   ipcMain.handle("serial:send-power", async () => {
     sendBytes(buildCommand(BANK_ISW, Buffer.from([0x44, 0x01, 0x10])));
     await new Promise((r) => setTimeout(r, 1000));
-    sendBytes(Buffer.concat([BANK_ICC, BANK_IMT, Buffer.from([0x44, 0x33, 0x31])]));
+    sendBytes(
+      Buffer.concat([BANK_ICC, BANK_IMT, Buffer.from([0x44, 0x33, 0x31])])
+    );
   });
 }

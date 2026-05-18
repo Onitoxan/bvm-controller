@@ -21,9 +21,9 @@ export function ControlButton({
   disabled = false,
   variant = "normal",
   icon,
-  onPress,
+  onPress
 }: ControlButtonProps): JSX.Element {
-  const ledOn        = Boolean((ledState[group] ?? 0) & mask);
+  const ledOn = Boolean((ledState[group] ?? 0) & mask);
   const displayLabel = isShifted && shiftedLabel ? shiftedLabel : label;
 
   return (
@@ -31,8 +31,8 @@ export function ControlButton({
       className={[
         "ctrl-btn",
         `ctrl-btn--${variant}`,
-        ledOn    ? "ctrl-btn--led-on"   : "",
-        disabled ? "ctrl-btn--disabled" : "",
+        ledOn ? "ctrl-btn--led-on" : "",
+        disabled ? "ctrl-btn--disabled" : ""
       ]
         .filter(Boolean)
         .join(" ")}
@@ -48,7 +48,9 @@ export function ControlButton({
       </div>
       <span className="ctrl-btn__label">{displayLabel}</span>
       {shiftedLabel && (
-        <span className="ctrl-btn__alt">{isShifted ? label : shiftedLabel}</span>
+        <span className="ctrl-btn__alt">
+          {isShifted ? label : shiftedLabel}
+        </span>
       )}
     </button>
   );

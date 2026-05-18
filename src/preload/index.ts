@@ -5,8 +5,10 @@ const serialAPI = {
   listPorts: () => ipcRenderer.invoke("serial:list-ports"),
   connect: (path: string) => ipcRenderer.invoke("serial:connect", path),
   disconnect: () => ipcRenderer.invoke("serial:disconnect"),
-  sendKey: (group: number, mask: number) => ipcRenderer.send("serial:send-key", group, mask),
-  sendEncoder: (id: number, ticks: number) => ipcRenderer.send("serial:send-encoder", id, ticks),
+  sendKey: (group: number, mask: number) =>
+    ipcRenderer.send("serial:send-key", group, mask),
+  sendEncoder: (id: number, ticks: number) =>
+    ipcRenderer.send("serial:send-encoder", id, ticks),
   sendPower: () => ipcRenderer.invoke("serial:send-power"),
   onLedState: (cb: (state: Record<number, number>) => void) => {
     const listener = (_: unknown, state: Record<number, number>) => cb(state);
@@ -21,7 +23,7 @@ const serialAPI = {
   onDisconnect: (cb: () => void) => {
     ipcRenderer.on("serial:disconnected", cb);
     return () => ipcRenderer.removeListener("serial:disconnected", cb);
-  },
+  }
 };
 
 if (process.contextIsolated) {

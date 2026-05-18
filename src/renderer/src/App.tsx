@@ -11,10 +11,8 @@ import {
   SHIFT_GROUP,
   SHIFT_MASK,
   isLedOn,
-  BUTTON_ICONS,
+  BUTTON_ICONS
 } from "./protocol/bkm10r";
-
-
 
 function RefreshIcon(): JSX.Element {
   return (
@@ -38,7 +36,7 @@ export default function App(): JSX.Element {
     disconnect,
     sendKey,
     sendEncoder,
-    sendPower,
+    sendPower
   } = useSerial();
 
   const isShifted = isLedOn(ledState, SHIFT_GROUP, SHIFT_MASK);
@@ -77,14 +75,15 @@ export default function App(): JSX.Element {
           >
             {connected ? "Disconnect" : "Connect"}
           </button>
-          <span className={`status-dot status-dot--${connected ? "on" : "off"}`} />
+          <span
+            className={`status-dot status-dot--${connected ? "on" : "off"}`}
+          />
         </div>
         {error && <div className="error-bar">{error}</div>}
       </header>
 
       {/* ── Panel ── */}
       <main className="bvm__panel">
-
         {/* Power / Degauss row */}
         <section className="section section--top">
           <ControlButton
@@ -146,14 +145,38 @@ export default function App(): JSX.Element {
           {/* D-pad */}
           <div className="nav-pad">
             <div className="nav-row nav-row--top">
-              <ControlButton {...NAV_BUTTONS[0]} ledState={ledState} disabled={!connected} variant="nav" onPress={sendKey} />
+              <ControlButton
+                {...NAV_BUTTONS[0]}
+                ledState={ledState}
+                disabled={!connected}
+                variant="nav"
+                onPress={sendKey}
+              />
             </div>
             <div className="nav-row nav-row--mid">
-              <ControlButton {...NAV_BUTTONS[1]} ledState={ledState} disabled={!connected} variant="nav" onPress={sendKey} />
-              <ControlButton {...NAV_BUTTONS[2]} ledState={ledState} disabled={!connected} variant="nav" onPress={sendKey} />
+              <ControlButton
+                {...NAV_BUTTONS[1]}
+                ledState={ledState}
+                disabled={!connected}
+                variant="nav"
+                onPress={sendKey}
+              />
+              <ControlButton
+                {...NAV_BUTTONS[2]}
+                ledState={ledState}
+                disabled={!connected}
+                variant="nav"
+                onPress={sendKey}
+              />
             </div>
             <div className="nav-row nav-row--bot">
-              <ControlButton {...NAV_BUTTONS[3]} ledState={ledState} disabled={!connected} variant="nav" onPress={sendKey} />
+              <ControlButton
+                {...NAV_BUTTONS[3]}
+                ledState={ledState}
+                disabled={!connected}
+                variant="nav"
+                onPress={sendKey}
+              />
             </div>
           </div>
 

@@ -21,13 +21,17 @@ export function useSerial() {
 
   useEffect(() => {
     refreshPorts();
-    const unsubLed  = window.serial.onLedState(setLedState);
-    const unsubErr  = window.serial.onError((msg) => setError(msg));
+    const unsubLed = window.serial.onLedState(setLedState);
+    const unsubErr = window.serial.onError((msg) => setError(msg));
     const unsubDisc = window.serial.onDisconnect(() => {
       setConnected(false);
       setLedState({});
     });
-    return () => { unsubLed(); unsubErr(); unsubDisc(); };
+    return () => {
+      unsubLed();
+      unsubErr();
+      unsubDisc();
+    };
   }, [refreshPorts]);
 
   const connect = useCallback(async () => {
@@ -47,13 +51,19 @@ export function useSerial() {
     setLedState({});
   }, []);
 
-  const sendKey = useCallback((group: number, mask: number) => {
-    if (connected) window.serial.sendKey(group, mask);
-  }, [connected]);
+  const sendKey = useCallback(
+    (group: number, mask: number) => {
+      if (connected) window.serial.sendKey(group, mask);
+    },
+    [connected]
+  );
 
-  const sendEncoder = useCallback((id: number, ticks: number) => {
-    if (connected) window.serial.sendEncoder(id, ticks);
-  }, [connected]);
+  const sendEncoder = useCallback(
+    (id: number, ticks: number) => {
+      if (connected) window.serial.sendEncoder(id, ticks);
+    },
+    [connected]
+  );
 
   const sendPower = useCallback(async () => {
     if (!connected || powering) return;
@@ -78,6 +88,6 @@ export function useSerial() {
     disconnect,
     sendKey,
     sendEncoder,
-    sendPower,
+    sendPower
   };
 }
