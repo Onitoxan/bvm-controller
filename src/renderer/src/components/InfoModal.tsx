@@ -72,6 +72,14 @@ export function InfoModal({ onClose }: InfoModalProps): JSX.Element {
             </dl>
           </section>
 
+          <a
+            className="modal__kofi"
+            href="https://ko-fi.com/onitoxan"
+            target="_blank"
+            rel="noreferrer"
+          >
+            If this saved you some time, consider buying me a coffee on Ko-fi
+          </a>
         </div>
       </div>
     </div>

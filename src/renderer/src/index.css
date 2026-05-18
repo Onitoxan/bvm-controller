@@ -596,6 +596,20 @@ body {
   margin-left: 0;
 }
 
+.modal__kofi {
+  display: block;
+  text-align: center;
+  padding: 12px 0 4px;
+  font-size: 10px;
+  color: var(--orange);
+  opacity: 0.6;
+  text-decoration: none;
+  border-top: 1px solid var(--border);
+  transition: opacity 0.1s;
+}
+
+.modal__kofi:hover { opacity: 1; }
+
 .modal__ref-link {
   display: inline-block;
   margin-top: 10px;
