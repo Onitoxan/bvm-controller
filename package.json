@@ -1,6 +1,6 @@
 {
   "name": "bvm-controller",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "BVM Controller",
   "main": "./out/main/index.js",
   "author": "BVM Controller",
