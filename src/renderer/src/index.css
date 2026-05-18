@@ -257,6 +257,7 @@ body {
 .section--bottom {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   gap: 24px;
 }
 
